@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #007BFF;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 60px);
+            padding-top: 20px;
+        }
+        .todo-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        h2 {
+            margin: 0 0 20px 0;
+        }
+        .task-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .task-form input, .task-form button {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .task-form button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .task-form button:hover {
+            background-color: #0056b3;
+        }
+        .task-list {
+            list-style: none;
+            padding: 0;
+        }
+        .task-list li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .task-list .task-date {
+            font-size: 0.9em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Ma ToDo List</h1>
+    </div>
+    <div class="todo-container">
+        <h2>Ma Todo List</h2>
+        <form class="task-form" id="task-form">
+            <input type="text" id="task-input" placeholder="Nouvelle tâche" required>
+            <input type="date" id="date-input" required>
+            <button type="submit">Ajouter</button>
+        </form>
+        <ul class="task-list" id="task-list">
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById('task-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const taskInput = document.getElementById('task-input');
+            const dateInput = document.getElementById('date-input');
+            const taskList = document.getElementById('task-list');
+
+            const newTask = document.createElement('li');
+            const taskText = document.createElement('span');
+            taskText.textContent = taskInput.value;
+            const taskDate = document.createElement('span');
+            taskDate.textContent = dateInput.value;
+            taskDate.classList.add('task-date');
+
+            newTask.appendChild(taskText);
+            newTask.appendChild(taskDate);
+            taskList.appendChild(newTask);
+
+            taskInput.value = '';
+            dateInput.value = '';
+        });
+    </script>
+</body>
+</html>

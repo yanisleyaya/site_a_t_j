@@ -1,0 +1,81 @@
+/* Reset des marges et des paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Couleur de fond pour le corps */
+    color: #333; /* Couleur de texte principale */
+}
+
+nav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+nav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Conteneur flex pour aligner les éléments côte à côte */
+.flex-container {
+    display: flex;
+    justify-content: space-between; /* Espace uniforme entre les éléments */
+    align-items: center; /* Centre les éléments verticalement */
+    max-width: 800px; /* Largeur maximale du conteneur */
+    margin: 20px auto; /* Marge autour du conteneur */
+    background-color: #fff; /* Couleur de fond pour le conteneur */
+    padding: 20px; /* Espacement interne du conteneur */
+    border-radius: 100px; /* Coins arrondis */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+/* Styles pour le contenu texte */
+.content {
+    flex: 1; /* Pour que ce div prenne tout l'espace disponible */
+}
+
+/* Styles pour l'image */
+.flex-container img {
+    max-width: 150%; /* Image ne dépasse pas la largeur du conteneur */
+    height: auto; /* Hauteur ajustée automatiquement */
+    border-radius: 100px; /* Coins arrondis pour l'image */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Légère ombre pour l'image */
+}
+@font-face {
+    font-family:"MORATHINE" ;
+    src: url(font/MORATHINE.otf);
+}
+h1{
+    font-family:"MORATHINE" ;
+}
+/* Styles pour les boutons */
+button {
+    background-color: #333; /* Couleur de fond des boutons */
+    color: white; /* Couleur du texte des boutons */
+    border: none; /* Suppression de la bordure par défaut */
+    padding: 10px 20px; /* Espacement interne des boutons */
+    font-size: 16px; /* Taille du texte des boutons */
+    border-radius: 5px; /* Coins arrondis pour les boutons */
+    cursor: pointer; /* Curseur en forme de main pour indiquer que c'est cliquable */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition douce pour les changements de couleur */
+}
+
+button:hover {
+    background-color: #ddd; /* Couleur de fond au survol */
+    color: black; /* Couleur du texte au survol */
+}
