@@ -21,16 +21,14 @@
         }   
 
         /* Styles pour la barre de navigation */
+    
         nav {
             background-color: #333;
-            width: 100%;
             overflow: hidden;
-            position: fixed;
+            position: absolute;
             top: 0;
-            z-index: 1000; /* Assurer que la barre de navigation est au-dessus du reste */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Légère ombre pour effet de profondeur */
+            width: 100%;
         }
-
         nav a {
             float: left;
             display: block;
@@ -38,12 +36,12 @@
             text-align: center;
             padding: 14px 20px;
             text-decoration: none;
-            transition: background-color 0.3s ease; /* Transition douce pour le hover */
         }
-
         nav a:hover {
-            background-color: #555; /* Couleur de fond au survol */
+            background-color: #ddd;
+            color: black;
         }
+        
 
         /* Styles pour le titre */
         .video-title {
@@ -96,16 +94,20 @@
         .nav-arrows .arrow:hover {
             background-color: rgba(0, 0, 0, 0.7);
         }
+        nav a img {
+    width: 20px; /* Taille de l'image ajustée */
+    margin-right: 10px; /* Marge à droite de l'image */
+}
     </style>
 </head>
 <body>
     <nav>
-        <a href="accueil.html">Accueil</a>
-        <a href="todo-list.html">Todo-list</a>
-        <a href="jeu_des_nombre.html">Les nombres</a>
-        <a href="jeu_du_pendu.html">Le pendu</a>
-        <a href="evenement.html">Événement</a>
-        <a href="anime.html">Animé</a>
+        <a href="accueil.html"><img src="maison.svg">Accueil</a>
+        <a href="todo-list.html"><img src="block.png">Todo-list</a>
+        <a href="jeu_des_nombre.html"><img src="jeu.svg"> Les nombres</a>
+        <a href="jeu_du_pendu.html"><img src="jeu.svg">Le pendu</a>
+        <a href="evenement.html"><img src="anive.svg">Événement</a>
+        <a href="anime.html"><img src="tv.svg">Animé</a>
     </nav>
 
     <!-- Titre de la vidéo -->

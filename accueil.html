@@ -20,32 +20,26 @@
             height: 100vh; /* Hauteur de la vue */
             transition: background-color 0.3s ease;
         }
-
-        /* Styles pour la barre de navigation */
         nav {
-            background-color: #1d3557; /* Couleur de fond de la navbar */
-            width: 100%;
+            background-color: #333;
             overflow: hidden;
-            position: fixed;
+            position: absolute;
             top: 0;
-            z-index: 1000;
-            transition: background-color 0.3s ease;
+            width: 100%;
         }
-
         nav a {
             float: left;
             display: block;
-            color: #f1faee; /* Couleur du texte */
+            color: white;
             text-align: center;
             padding: 14px 20px;
             text-decoration: none;
-            transition: background-color 0.3s ease, color 0.3s ease;
         }
-
         nav a:hover {
-            background-color: #a8dadc; /* Couleur de fond au survol */
-            color: #1d3557; /* Couleur du texte au survol */
+            background-color: #ddd;
+            color: black;
         }
+        
 
         /* Styles pour le conteneur principal */
         .flex-container {
@@ -59,6 +53,7 @@
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 80px; /* Ajout de marges pour éviter le chevauchement avec la barre de navigation */
         }
 
         .flex-container:hover {
@@ -82,26 +77,7 @@
 
         .flex-container img:hover {
             transform: scale(1.05);
-        }
-
-        /* Styles pour les boutons */
-        button {
-            background-color: #457b9d; /* Couleur de fond du bouton */
-            color: #f1faee; /* Couleur du texte du bouton */
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #a8dadc; /* Couleur de fond du bouton au survol */
-            color: #1d3557; /* Couleur du texte du bouton au survol */
-        }
-
-        /* Media query pour rendre la page responsive */
+        } /* Media query pour rendre la page responsive */
         @media (max-width: 768px) {
             .flex-container {
                 flex-direction: column;
@@ -124,25 +100,29 @@
                 padding: 10px 15px;
             }
         }
+        nav a img {
+    width: 20px; /* Taille de l'image ajustée */
+    margin-right: 10px; /* Marge à droite de l'image */
+}
     </style>
 </head>
 <body>
     <nav>
-        <a href="accueil.html">Accueil</a>
-        <a href="todo-list.html">Todo-list</a>
-        <a href="jeu_des_nombre.html">Les nombres</a>
-        <a href="jeu_du_pendu.html">Le pendu</a>
-        <a href="evenement.html">Événement</a>
-        <a href="anime.html">Animé</a>
+        <a href="accueil.html"><img src="maison.svg">Accueil</a>
+        <a href="todo-list.html"><img src="block.png">Todo-list</a>
+        <a href="jeu_des_nombre.html"><img src="jeu.svg"> Les nombres</a>
+        <a href="jeu_du_pendu.html"><img src="jeu.svg">Le pendu</a>
+        <a href="evenement.html"><img src="anive.svg">Événement</a>
+        <a href="anime.html"><img src="tv.svg">Animé</a>
     </nav>
     <div class="flex-container">
         <div class="content">
             <h1>Bienvenue sur mon site!</h1>
             <p>Vous pouvez y découvrir tout plein de choses incroyables!</p>
-            <h1>En cliquant sur l'image vous pouvait y voir mon github. ➾</h1>
+            <h1>En cliquant sur l'image vous pouvez voir mon github. &rarr;</h1>
         </div>
         <a href="https://github.com/yanisleyaya" target="_blank">
-            <img src="https://www.freecodecamp.org/news/content/images/2024/04/freecodecampl-github.png" alt="Image">
+            <img src="https://www.freecodecamp.org/news/content/images/2024/04/freecodecampl-github.png" alt="GitHub">
         </a>
     </div>
 </body>
