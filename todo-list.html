@@ -3,29 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeu du Pendu</title>
+    <title>ToDo List</title>
+    <nav>
+        <a href="accueil.html">Accueil</a>
+        <a href="todo-list.html">Todo-list</a>
+        <a href="jeu_des_nombre.html">les nombres</a>
+        <a href="jeu_du_pendu.html">le pendu</a>
+        <a href="evenement.html">évenement</a>
+    </nav>
+
     <style>
-        body {
+    body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #6CE7FF;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23BAC0FF'/%3E%3Cstop offset='1' stop-color='%236CE7FF'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%23000AFF' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000AFF' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.4'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;;
             margin: 0;
             padding: 0;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #2C638A;
-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 100 60'%3E%3Cg %3E%3Crect fill='%232C638A' width='11' height='11'/%3E%3Crect fill='%232c658c' x='10' width='11' height='11'/%3E%3Crect fill='%232c668e' y='10' width='11' height='11'/%3E%3Crect fill='%232d6890' x='20' width='11' height='11'/%3E%3Crect fill='%232d6a92' x='10' y='10' width='11' height='11'/%3E%3Crect fill='%232d6b94' y='20' width='11' height='11'/%3E%3Crect fill='%232d6d96' x='30' width='11' height='11'/%3E%3Crect fill='%232d6f98' x='20' y='10' width='11' height='11'/%3E%3Crect fill='%232d709a' x='10' y='20' width='11' height='11'/%3E%3Crect fill='%232e729c' y='30' width='11' height='11'/%3E%3Crect fill='%232e749e' x='40' width='11' height='11'/%3E%3Crect fill='%232e75a0' x='30' y='10' width='11' height='11'/%3E%3Crect fill='%232e77a2' x='20' y='20' width='11' height='11'/%3E%3Crect fill='%232e79a4' x='10' y='30' width='11' height='11'/%3E%3Crect fill='%232e7aa6' y='40' width='11' height='11'/%3E%3Crect fill='%232e7ca8' x='50' width='11' height='11'/%3E%3Crect fill='%232e7eaa' x='40' y='10' width='11' height='11'/%3E%3Crect fill='%232e7fac' x='30' y='20' width='11' height='11'/%3E%3Crect fill='%232e81ae' x='20' y='30' width='11' height='11'/%3E%3Crect fill='%232d83b0' x='10' y='40' width='11' height='11'/%3E%3Crect fill='%232d85b2' y='50' width='11' height='11'/%3E%3Crect fill='%232d86b4' x='60' width='11' height='11'/%3E%3Crect fill='%232d88b6' x='50' y='10' width='11' height='11'/%3E%3Crect fill='%232d8ab8' x='40' y='20' width='11' height='11'/%3E%3Crect fill='%232d8cba' x='30' y='30' width='11' height='11'/%3E%3Crect fill='%232c8dbc' x='20' y='40' width='11' height='11'/%3E%3Crect fill='%232c8fbe' x='10' y='50' width='11' height='11'/%3E%3Crect fill='%232c91c0' x='70' width='11' height='11'/%3E%3Crect fill='%232c93c2' x='60' y='10' width='11' height='11'/%3E%3Crect fill='%232b95c4' x='50' y='20' width='11' height='11'/%3E%3Crect fill='%232b96c6' x='40' y='30' width='11' height='11'/%3E%3Crect fill='%232b98c8' x='30' y='40' width='11' height='11'/%3E%3Crect fill='%232a9aca' x='20' y='50' width='11' height='11'/%3E%3Crect fill='%232a9ccc' x='80' width='11' height='11'/%3E%3Crect fill='%23299ece' x='70' y='10' width='11' height='11'/%3E%3Crect fill='%23299fd0' x='60' y='20' width='11' height='11'/%3E%3Crect fill='%2328a1d2' x='50' y='30' width='11' height='11'/%3E%3Crect fill='%2328a3d4' x='40' y='40' width='11' height='11'/%3E%3Crect fill='%2327a5d6' x='30' y='50' width='11' height='11'/%3E%3Crect fill='%2326a7d8' x='90' width='11' height='11'/%3E%3Crect fill='%2326a8da' x='80' y='10' width='11' height='11'/%3E%3Crect fill='%2325aadc' x='70' y='20' width='11' height='11'/%3E%3Crect fill='%2324acde' x='60' y='30' width='11' height='11'/%3E%3Crect fill='%2323aee0' x='50' y='40' width='11' height='11'/%3E%3Crect fill='%2322b0e2' x='40' y='50' width='11' height='11'/%3E%3Crect fill='%2321b2e4' x='90' y='10' width='11' height='11'/%3E%3Crect fill='%2320b3e6' x='80' y='20' width='11' height='11'/%3E%3Crect fill='%231fb5e8' x='70' y='30' width='11' height='11'/%3E%3Crect fill='%231eb7ea' x='60' y='40' width='11' height='11'/%3E%3Crect fill='%231db9ec' x='50' y='50' width='11' height='11'/%3E%3Crect fill='%231cbbee' x='90' y='20' width='11' height='11'/%3E%3Crect fill='%231abdf0' x='80' y='30' width='11' height='11'/%3E%3Crect fill='%2319bff2' x='70' y='40' width='11' height='11'/%3E%3Crect fill='%2317c1f3' x='60' y='50' width='11' height='11'/%3E%3Crect fill='%2315c2f5' x='90' y='30' width='11' height='11'/%3E%3Crect fill='%2313c4f7' x='80' y='40' width='11' height='11'/%3E%3Crect fill='%2311c6f9' x='70' y='50' width='11' height='11'/%3E%3Crect fill='%230ec8fb' x='90' y='40' width='11' height='11'/%3E%3Crect fill='%230ccafd' x='80' y='50' width='11' height='11'/%3E%3Crect fill='%2308CCFF' x='90' y='50' width='11' height='11'/%3E%3C/g%3E%3C/svg%3E");
-background-attachment: fixed;
-background-size: cover;
-            height: 100vh;
         }
         nav {
             background-color: #333;
             overflow: hidden;
-            position: fixed;
+            position: absolute;
             top: 0;
             width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         nav a {
             float: left;
@@ -34,169 +40,112 @@ background-size: cover;
             text-align: center;
             padding: 14px 20px;
             text-decoration: none;
-            transition: background-color 0.3s, color 0.3s;
         }
         nav a:hover {
             background-color: #ddd;
             color: black;
         }
-        .container {
-            text-align: center;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            width: 90%;
-            max-width: 600px;
-            transition: transform 0.3s ease;
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
         }
-        .container:hover {
-            transform: scale(1.02);
+        .todo-container {
+             background-color: #fff;
+             padding: 40px; /* Augmenté pour plus d'espace autour du contenu */
+            border-radius: 10px;
+             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+             width: 400px; /* Augmenté pour élargir la boîte de la liste des tâches */
+             transition: transform 0.2s;
         }
-        .hidden-word {
-            font-size: 32px;
-            letter-spacing: 5px;
-            margin: 20px 0;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        .message {
-            font-size: 20px;
-            margin-top: 20px;
-            color: #333;
-            transition: color 0.3s;
-        }
-        .message.success {
-            color: #27ae60;
-        }
-        .message.error {
-            color: #e74c3c;
-        }
-        .pendu {
-            white-space: pre;
-            font-family: monospace;
-            font-size: 18px;
-            margin-top: 20px;
-            color: #e74c3c;
-        }
-        input[type="text"] {
-            padding: 10px;
-            font-size: 18px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-right: 10px;
-            transition: border-color 0.3s;
-        }
-        input[type="text"]:focus {
-            border-color: #3498db;
-            outline: none;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 18px;
-            color: #fff;
-            background-color: #3498db;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        button:hover {
-            background-color: #2980b9;
+        .todo-container:hover {
             transform: scale(1.05);
         }
+        h2 {
+            margin: 0 0 20px 0;
+            color: #000000ee;
+        }
+        .task-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .task-form input, .task-form button {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .task-form button {
+            background-color: #000000a1;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .task-form button:hover {
+            background-color: #00000075;
+        }
+        .task-list {
+            list-style: none;
+            padding: 0;
+        }
+
+         .task-list li {
+             background-color: #f9f9f9;
+             padding: 15px; /* Augmenté pour plus d'espace autour de chaque tâche */
+             margin-bottom: 15px;
+             border: 1px solid #ddd;
+             border-radius: 5px;
+             display: flex;
+            justify-content: space-between;
+            transition: background-color 0.3s;
+        }
+        .task-list li:hover {
+            background-color: #e9ecef;
+        }
+        .task-list .task-date {
+            font-size: 0.9em;
+            color: #888;
+        }
     </style>
+</style>
+
 </head>
-<body>
-    <nav>
-        <a href="accueil.html">Accueil</a>
-        <a href="todo-list.html">Todo-list</a>
-        <a href="jeu_des_nombre.html">Les nombres</a>
-        <a href="jeu_du_pendu.html">Le pendu</a>
-        <a href="evenement.html">Événement</a>
-    </nav>
-    <div class="container">
-        <h1>Jeu du Pendu</h1>
-        <div id="pendu" class="pendu"></div>
-        <div id="mot" class="hidden-word"></div>
-        <input type="text" id="entree" />
-        <button onclick="deviner()">Deviner</button>
-        <div id="message" class="message"></div>
+
+    <div class="todo-container">
+        <h2>Ma Todo List</h2>
+        <form class="task-form" id="task-form">
+            <input type="text" id="task-input" placeholder="Nouvelle tâche" required>
+            <input type="date" id="date-input" required>
+            <button type="submit">Ajouter</button>
+        </form>
+        <ul class="task-list" id="task-list">
+        </ul>
     </div>
 
     <script>
-        let mot_a_deviner = '';
-        let mot_en_cours = [];
-        let erreur = 0;
+        document.getElementById('task-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const taskInput = document.getElementById('task-input');
+            const dateInput = document.getElementById('date-input');
+            const taskList = document.getElementById('task-list');
 
-        // Fonction pour initialiser le jeu
-        function initialiserJeu() {
-            mot_a_deviner = choisirMot();
-            mot_en_cours = Array(mot_a_deviner.length).fill('-');
-            erreur = 0;
+            const newTask = document.createElement('li');
+            const taskText = document.createElement('span');
+            taskText.textContent = taskInput.value;
+            const taskDate = document.createElement('span');
+            taskDate.textContent = dateInput.value;
+            taskDate.classList.add('task-date');
 
-            document.getElementById('mot').innerText = mot_en_cours.join(' ');
-            document.getElementById('pendu').innerText = '';
-            document.getElementById('message').innerText = '';
-            document.getElementById('entree').value = '';
-        }
+            newTask.appendChild(taskText);
+            newTask.appendChild(taskDate);
+            taskList.appendChild(newTask);
 
-        // Fonction pour choisir un mot aléatoire
-        function choisirMot() {
-            const listedemotsadeviner = ['belizien']; // Ajouter d'autres mots ici si nécessaire
-            return listedemotsadeviner[Math.floor(Math.random() * listedemotsadeviner.length)];
-        }
-
-        // Appeler initialiserJeu au chargement de la page
-        window.onload = initialiserJeu;
-
-        function deviner() {
-            let entree = document.getElementById('entree').value.toLowerCase();
-
-            if (entree.length === 0) {
-                document.getElementById('message').innerText = "Entrez au moins une lettre.";
-                document.getElementById('message').classList.add('error');
-                return;
-            }
-
-            let mot_modifie = false;
-            for (let i = 0; i < mot_a_deviner.length; i++) {
-                if (entree.includes(mot_a_deviner[i])) {
-                    mot_en_cours[i] = mot_a_deviner[i];
-                    mot_modifie = true;
-                }
-            }
-
-            if (!mot_modifie) {
-                erreur++;
-                dessinerPendu(erreur);
-            }
-
-            document.getElementById('mot').innerText = mot_en_cours.join(' ');
-
-            if (mot_en_cours.join('') === mot_a_deviner) {
-                document.getElementById('message').innerText = "Félicitations ! Vous avez deviné le mot : " + mot_a_deviner;
-                document.getElementById('message').classList.remove('error');
-                document.getElementById('message').classList.add('success');
-                setTimeout(initialiserJeu, 3000); // Redémarrer le jeu après 3 secondes de délai
-            } else if (erreur >= 6) {
-                document.getElementById('message').innerText = "Désolé, vous avez perdu. Le mot était : " + mot_a_deviner;
-                document.getElementById('message').classList.remove('success');
-                document.getElementById('message').classList.add('error');
-                setTimeout(initialiserJeu, 3000); // Redémarrer le jeu après 3 secondes de délai
-            }
-        }
-
-        function dessinerPendu(erreur) {
-            let pendu = '';
-            if (erreur >= 1) pendu += " ||/       |  \n";
-            if (erreur >= 2) pendu += " ||        0  \n";
-            if (erreur >= 3) pendu += " ||       /|\\ \n";
-            if (erreur >= 4) pendu += " ||       /|  \n";
-            if (erreur >= 5) pendu += "/||           \n";
-            if (erreur >= 6) pendu += "==============\n";
-            document.getElementById('pendu').innerText = pendu;
-        }
+            taskInput.value = '';
+            dateInput.value = '';
+        });
     </script>
 </body>
 </html>
