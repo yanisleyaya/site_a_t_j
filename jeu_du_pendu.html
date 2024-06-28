@@ -111,9 +111,10 @@ background-size: cover;
     <nav>
         <a href="accueil.html">Accueil</a>
         <a href="todo-list.html">Todo-list</a>
-        <a href="jeu_des_nombre.html">Les nombres</a>
-        <a href="jeu_du_pendu.html">Le pendu</a>
-        <a href="evenement.html">Événement</a>
+        <a href="jeu_des_nombre.html">les nombres</a>
+        <a href="jeu_du_pendu.html">le pendu</a>
+        <a href="evenement.html">évenement</a>
+        <a href="animé.html">animé</a>
     </nav>
     <div class="container">
         <h1>Jeu du Pendu</h1>
@@ -190,71 +191,79 @@ background-size: cover;
             'bolivien', 'paraguayen', 'uruguayen', 'costaricien', 'salvadorien', 'guatemalteque',
             'panameen', 'hondurien', 'nicaraguayen', 'cubain', 'dominicain', 'haitien', 'portoricain',
             'jamaicain', 'bahameen', 'belizien'
-        ];
-        let mot_a_deviner, taille_mot, mot_en_cours, erreurs;
+];
 
-        function initialiserJeu() {
-            mot_a_deviner = listedemotsadeviner[Math.floor(Math.random() * listedemotsadeviner.length)];
-            taille_mot = mot_a_deviner.length;
-            mot_en_cours = Array(taille_mot).fill('-');
-            erreurs = 0;
+let mot_a_deviner, taille_mot, mot_en_cours, erreurs;
 
-            document.getElementById('mot').innerText = mot_en_cours.join(' ');
-            document.getElementById('pendu').innerText = '';
-            document.getElementById('message').innerText = '';
-            document.getElementById('entree').value = '';
+function initialiserJeu() {
+    // Initialisation du jeu
+    mot_a_deviner = listedemotsadeviner[Math.floor(Math.random() * listedemotsadeviner.length)];
+    taille_mot = mot_a_deviner.length;
+    mot_en_cours = Array(taille_mot).fill('-');
+    erreurs = 0;
+
+    document.getElementById('mot').innerText = mot_en_cours.join(' ');
+    document.getElementById('pendu').innerText = '';
+    document.getElementById('message').innerText = '';
+    document.getElementById('entree').value = '';
+}
+
+function deviner() {
+    // Fonction pour traiter l'entrée de l'utilisateur
+    let entree = document.getElementById('entree').value.toLowerCase();
+    document.getElementById('entree').value = '';
+
+    for (let i = 0; i < entree.length; i++) {
+        let lettre = entree[i];
+
+        if (lettre.length !== 1 || !lettre.match(/[a-z]/)) {
+            document.getElementById('message').innerText = "Entrez des lettres valides.";
+            document.getElementById('message').classList.add('error');
+            return;
         }
 
-        function deviner() {
-            let entree = document.getElementById('entree').value.toLowerCase();
-            document.getElementById('entree').value = '';
-
-            if (entree.length !== 1 || !entree.match(/[a-z]/)) {
-                document.getElementById('message').innerText = "Entrez une seule lettre valide.";
-                document.getElementById('message').classList.add('error');
-                return;
-            }
-
-            let lettre_trouvee = false;
-            for (let i = 0; i < taille_mot; i++) {
-                if (mot_a_deviner[i] === entree) {
-                    mot_en_cours[i] = entree;
-                    lettre_trouvee = true;
-                }
-            }
-
-            if (!lettre_trouvee) {
-                erreurs++;
-                dessinerPendu(erreurs);
-            }
-
-            document.getElementById('mot').innerText = mot_en_cours.join(' ');
-
-            if (mot_en_cours.join('') === mot_a_deviner) {
-                document.getElementById('message').innerText = "Félicitations ! Vous avez deviné le mot : " + mot_a_deviner;
-                document.getElementById('message').classList.remove('error');
-                document.getElementById('message').classList.add('success');
-                setTimeout(initialiserJeu, 3000); // Recommencer le jeu après 3 secondes
-            } else if (erreurs >= 6) {
-                document.getElementById('message').innerText = "Désolé, vous avez perdu. Le mot était : " + mot_a_deviner;
-                document.getElementById('message').classList.remove('success');
-                document.getElementById('message').classList.add('error');
-                setTimeout(initialiserJeu, 3000); // Recommencer le jeu après 3 secondes
+        let lettre_trouvee = false;
+        for (let j = 0; j < taille_mot; j++) {
+            if (mot_a_deviner[j] === lettre && mot_en_cours[j] === '-') {
+                mot_en_cours[j] = lettre;
+                lettre_trouvee = true;
             }
         }
 
-        function dessinerPendu(erreurs) {
-            let pendu = '';
-            if (erreurs >= 1) pendu += " ||/       |  \n";
-            if (erreurs >= 2) pendu += " ||        0  \n";
-            if (erreurs >= 3) pendu += " ||       /|\\ \n";
-            if (erreurs >= 4) pendu += " ||       /|  \n";
-            if (erreurs >= 5) pendu += "/||           \n";
-            if (erreurs >= 6) pendu += "==============\n";
-            document.getElementById('pendu').innerText = pendu;
+        if (!lettre_trouvee) {
+            erreurs++;
+            dessinerPendu(erreurs);
         }
+    }
 
-        initialiserJeu(); // Initialiser le jeu au chargement de la page
+    document.getElementById('mot').innerText = mot_en_cours.join(' ');
+
+    if (mot_en_cours.join('') === mot_a_deviner) {
+        document.getElementById('message').innerText = "Félicitations ! Vous avez deviné le mot : " + mot_a_deviner;
+        document.getElementById('message').classList.remove('error');
+        document.getElementById('message').classList.add('success');
+        setTimeout(initialiserJeu, 3000); // Recommencer le jeu après 3 secondes
+    } else if (erreurs >= 6) {
+        document.getElementById('message').innerText = "Désolé, vous avez perdu. Le mot était : " + mot_a_deviner;
+        document.getElementById('message').classList.remove('success');
+        document.getElementById('message').classList.add('error');
+        setTimeout(initialiserJeu, 3000); // Recommencer le jeu après 3 secondes
+    }
+}
+
+function dessinerPendu(erreurs) {
+    // Fonction pour dessiner le pendu en fonction des erreurs
+    let pendu = '';
+    if (erreurs >= 1) pendu += " ||/       |  \n";
+    if (erreurs >= 2) pendu += " ||        0  \n";
+    if (erreurs >= 3) pendu += " ||       /|\\ \n";
+    if (erreurs >= 4) pendu += " ||       /|  \n";
+    if (erreurs >= 5) pendu += "/||           \n";
+    if (erreurs >= 6) pendu += "==============\n";
+    document.getElementById('pendu').innerText = pendu;
+}
+
+initialiserJeu(); // Initialiser le jeu au chargement de la page
     </script>
 </body>
 </html>

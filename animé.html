@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Navbar</title>
+    <style>
+        /* Reset CSS et styles généraux */
+         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2; /* Couleur de fond légère de secours */
+            background-image: url("https://img.freepik.com/free-vector/gradient-zoom-effect-blue-background_23-2149762303.jpg");
+            background-size: cover; /* Redimensionner l'image pour couvrir tout le corps */
+            background-position: center center; /* Centrer l'image */
+            background-repeat: no-repeat; /* Image de fond non répétée */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }   
+
+        /* Styles pour la barre de navigation */
+        nav {
+            background-color: #333;
+            width: 100%;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            z-index: 1000; /* Assurer que la barre de navigation est au-dessus du reste */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Légère ombre pour effet de profondeur */
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease; /* Transition douce pour le hover */
+        }
+
+        nav a:hover {
+            background-color: #555; /* Couleur de fond au survol */
+        }
+
+        /* Styles pour le titre */
+        .video-title {
+            text-align: center;
+            margin-top: 100px; /* Espacement entre la barre de navigation et le titre */
+            font-size: 36px;
+            color: #333;
+            text-transform: uppercase; /* Texte en majuscules */
+            letter-spacing: 1px; /* Espacement entre les caractères */
+        }
+
+        /* Styles pour la vidéo */
+        .video-container {
+            margin-top: 40px; /* Espacement entre le titre et la vidéo */
+            position: relative; /* Position relative pour que les flèches soient absolues par rapport à ce conteneur */
+            width: 100%;
+            max-width: 800px; /* Largeur maximale pour limiter la largeur de la vidéo */
+            height: 450px; /* Hauteur fixe de la vidéo */
+            border-radius: 8px; /* Coins arrondis */
+            overflow: hidden; /* Masquer tout contenu débordant */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour effet de profondeur */
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none; /* Supprimer la bordure de l'iframe */
+        }
+
+        /* Styles pour les flèches de navigation */
+        .nav-arrows {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            z-index: 10; /* Assurer que les flèches sont au-dessus de la vidéo */
+        }
+
+        .nav-arrows .arrow {
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-arrows .arrow:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="accueil.html">Accueil</a>
+        <a href="todo-list.html">Todo-list</a>
+        <a href="jeu_des_nombre.html">Les nombres</a>
+        <a href="jeu_du_pendu.html">Le pendu</a>
+        <a href="evenement.html">Événement</a>
+        <a href="anime.html">Animé</a>
+    </nav>
+
+    <!-- Titre de la vidéo -->
+    <h1 class="video-title">Les premiers épisodes de mon animé préféré</h1>
+
+    <!-- Container pour la vidéo -->
+    <div class="video-container">
+        <!-- Flèches de navigation -->
+        <div class="nav-arrows">
+            <div class="arrow left-arrow" onclick="changeVideo('prev')">&lt;</div>
+            <div class="arrow right-arrow" onclick="changeVideo('next')">&gt;</div>
+        </div>
+        <!-- Vidéo principale -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/vtj-9j2Pgzw?start=16" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <!-- JavaScript pour changer la vidéo au clic des flèches -->
+    <script>
+        const videoUrls = [
+            "https://www.youtube.com/embed/vtj-9j2Pgzw?start=16",
+            <iframe src="https://animationdigitalnetwork.fr/embedded/oshi-no-ko/22513" frameborder="0" width="640px" height="360px" allowfullscreen></iframe><br/><a href="https://animationdigitalnetwork.fr/video/oshi-no-ko/22513-episode-1-une-mere-et-ses-enfants">Source : Oshi no Ko - Épisode 1 en VOSTFR et VF sur ADN</a>
+        
+        ];
+
+        let currentVideoIndex = 0;
+
+        function changeVideo(direction) {
+            if (direction === 'next') {
+                currentVideoIndex = (currentVideoIndex + 1) % videoUrls.length;
+            } else if (direction === 'prev') {
+                currentVideoIndex = (currentVideoIndex - 1 + videoUrls.length) % videoUrls.length;
+            }
+
+            const iframe = document.querySelector('.video-container iframe');
+            iframe.src = videoUrls[currentVideoIndex];
+        }
+    </script>
+</body>
+</html>
