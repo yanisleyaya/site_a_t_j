@@ -125,15 +125,79 @@ background-size: cover;
     </div>
 
     <script>
-        let mot_a_deviner = '';
-        let mot_en_cours = [];
-        let erreur = 0;
+        let listedemotsadeviner = [
+            'voiture', 'maison', 'chaise', 'table', 'fenetre', 'porte', 'jardin', 'ordinateur',
+            'telephone', 'internet', 'television', 'radio', 'journal', 'magasin', 'supermarche',
+            'restaurant', 'cafe', 'cinema', 'theatre', 'parc', 'foret', 'plage', 'lac',
+            'riviere', 'montagne', 'mer', 'nuage', 'soleil', 'lune', 'etoile', 'pluie',
+            'neige', 'vent', 'tempete', 'orage', 'foudre', 'arc-en-ciel', 'printemps', 'ete',
+            'automne', 'hiver', 'matin', 'midi', 'soir', 'nuit', 'heure', 'minute', 'seconde',
+            'jour', 'semaine', 'mois', 'annee', 'decennie', 'siecle', 'millenaire', 'histoire',
+            'geographie', 'mathematiques', 'sciences', 'physique', 'chimie', 'biologie',
+            'langue', 'francais', 'anglais', 'espagnol', 'allemand', 'italien', 'russe',
+            'chinois', 'arabe', 'japonais', 'indien', 'bresilien', 'canadien', 'americain',
+            'europeen', 'asiatique', 'africain', 'oceanien', 'informatique', 'technologie',
+            'internet', 'reseau', 'donnees', 'programme', 'logiciel', 'application',
+            'site web', 'navigateur', 'serveur', 'email', 'chat', 'forum', 'reseaux sociaux',
+            'photo', 'video', 'musique', 'livre', 'journal', 'magazine', 'journaliste',
+            'ecrivain', 'auteur', 'lecture', 'ecole', 'college', 'lycee', 'universite',
+            'professeur', 'eleve', 'etudiant', 'cours', 'examen', 'note', 'diplome',
+            'travail', 'emploi', 'bureau', 'entreprise', 'patron', 'collegue', 'client',
+            'projet', 'equipe', 'reunion', 'presentation', 'rapport', 'objectif', 'succes',
+            'echec', 'reussite', 'economie', 'finance', 'commerce', 'marche', 'produit',
+            'vente', 'achat', 'publicite', 'promotion', 'marketing', 'strategie', 'budget',
+            'finance', 'argent', 'banque', 'compte', 'epargne', 'investissement', 'pret',
+            'emprunt', 'dette', 'impot', 'taxe', 'administration', 'gouvernement', 'politique',
+            'democratie', 'dictature', 'election', 'vote', 'parti', 'opposition', 'parlement',
+            'senat', 'assemblee', 'loi', 'justice', 'tribunal', 'juge', 'avocat', 'accuse',
+            'crime', 'peine', 'prison', 'sentence', 'proces', 'affaire', 'victime',
+            'coupable', 'innocent', 'criminalite', 'violence', 'agression', 'vol', 'vandalisme',
+            'droit', 'obligation', 'liberte', 'responsabilite', 'devoir', 'morale', 'ethique',
+            'religion', 'croyance', 'spiritualite', 'Dieu', 'foi', 'culte', 'priere',
+            'eglise', 'temple', 'mosquee', 'synagogue', 'bouddhisme', 'hindouisme', 'christianisme',
+            'islam', 'atheisme', 'agnosticisme', 'philosophie', 'sagesse', 'pensee', 'idee',
+            'concept', 'theorie', 'hypothese', 'argument', 'raisonnement', 'logique',
+            'raison', 'emotion', 'sentiment', 'amour', 'haine', 'joie', 'tristesse',
+            'colere', 'peur', 'bonheur', 'sante', 'maladie', 'medecin', 'infirmier',
+            'hopital', 'clinique', 'consultation', 'traitement', 'remede', 'pharmacie',
+            'medicament', 'chirurgie', 'operation', 'douleur', 'souffrance', 'sante mentale',
+            'psychologie', 'psychiatre', 'therapie', 'psychologue', 'psychotherapie', 'stress',
+            'anxiete', 'depression', 'equilibre', 'repos', 'sommeil', 'reve', 'cauchemar',
+            'reveil', 'endormissement', 'insomnie', 'sieste', 'repos', 'pause', 'relaxation',
+            'meditation', 'zen', 'yoga', 'sport', 'fitness', 'muscle', 'exercice', 'course',
+            'natation', 'football', 'basketball', 'volleyball', 'tennis', 'golf', 'rugby',
+            'athletisme', 'boxe', 'arts martiaux', 'karate', 'judo', 'taekwondo', 'wushu',
+            'equitation', 'cyclisme', 'skateboard', 'surf', 'ski', 'snowboard', 'montagne',
+            'escalade', 'randonnee', 'camping', 'voyage', 'aventure', 'exploration',
+            'decouverte', 'expedition', 'tourisme', 'vacances', 'destination', 'visite',
+            'culture', 'patrimoine', 'tradition', 'coutume', 'folklore', 'art', 'peinture',
+            'sculpture', 'musee', 'exposition', 'photographie', 'cinema', 'theatre', 'danse',
+            'musique', 'concert', 'spectacle', 'opera', 'ballet', 'orchestre', 'chanson',
+            'instrument', 'guitare', 'piano', 'violon', 'flute', 'trompette', 'batterie',
+            'chant', 'voix', 'chorale', 'symphonie', 'comedie', 'drame', 'fiction', 'poesie',
+            'romance', 'thriller', 'action', 'aventure', 'fantasy', 'science-fiction',
+            'horreur', 'western', 'histoire', 'biographie', 'autobiographie', 'essai', 'critique',
+            'lecture', 'bibliotheque', 'librairie', 'livre', 'auteur', 'ecrivain', 'lecture',
+            'education', 'apprentissage', 'connaissance', 'savoir', 'sagesse', 'culture',
+            'science', 'mathematiques', 'physique', 'chimie', 'biologie', 'geographie',
+            'histoire', 'langue', 'francais', 'anglais', 'espagnol', 'allemand', 'russe',
+            'chinois', 'arabe', 'japonais', 'coreen', 'portugais', 'italien', 'neerlandais',
+            'suedois', 'norvegien', 'danois', 'finlandais', 'hebreu', 'hindi', 'turc',
+            'grec', 'polonais', 'tcheque', 'slovaque', 'hongrois', 'roumain', 'bulgare',
+            'serbe', 'croate', 'ukrainien', 'lituanien', 'letton', 'estonien', 'islandais',
+            'gallois', 'ecossais', 'irlandais', 'americain', 'canadien', 'mexicain', 'bresilien',
+            'argentin', 'chilien', 'colombien', 'peruvien', 'venezuelien', 'equatorien',
+            'bolivien', 'paraguayen', 'uruguayen', 'costaricien', 'salvadorien', 'guatemalteque',
+            'panameen', 'hondurien', 'nicaraguayen', 'cubain', 'dominicain', 'haitien', 'portoricain',
+            'jamaicain', 'bahameen', 'belizien'
+        ];
+        let mot_a_deviner, taille_mot, mot_en_cours, erreurs;
 
-        // Fonction pour initialiser le jeu
         function initialiserJeu() {
-            mot_a_deviner = choisirMot();
-            mot_en_cours = Array(mot_a_deviner.length).fill('-');
-            erreur = 0;
+            mot_a_deviner = listedemotsadeviner[Math.floor(Math.random() * listedemotsadeviner.length)];
+            taille_mot = mot_a_deviner.length;
+            mot_en_cours = Array(taille_mot).fill('-');
+            erreurs = 0;
 
             document.getElementById('mot').innerText = mot_en_cours.join(' ');
             document.getElementById('pendu').innerText = '';
@@ -141,35 +205,27 @@ background-size: cover;
             document.getElementById('entree').value = '';
         }
 
-        // Fonction pour choisir un mot aléatoire
-        function choisirMot() {
-            const listedemotsadeviner = ['belizien']; // Ajouter d'autres mots ici si nécessaire
-            return listedemotsadeviner[Math.floor(Math.random() * listedemotsadeviner.length)];
-        }
-
-        // Appeler initialiserJeu au chargement de la page
-        window.onload = initialiserJeu;
-
         function deviner() {
             let entree = document.getElementById('entree').value.toLowerCase();
+            document.getElementById('entree').value = '';
 
-            if (entree.length === 0) {
-                document.getElementById('message').innerText = "Entrez au moins une lettre.";
+            if (entree.length !== 1 || !entree.match(/[a-z]/)) {
+                document.getElementById('message').innerText = "Entrez une seule lettre valide.";
                 document.getElementById('message').classList.add('error');
                 return;
             }
 
-            let mot_modifie = false;
-            for (let i = 0; i < mot_a_deviner.length; i++) {
-                if (entree.includes(mot_a_deviner[i])) {
-                    mot_en_cours[i] = mot_a_deviner[i];
-                    mot_modifie = true;
+            let lettre_trouvee = false;
+            for (let i = 0; i < taille_mot; i++) {
+                if (mot_a_deviner[i] === entree) {
+                    mot_en_cours[i] = entree;
+                    lettre_trouvee = true;
                 }
             }
 
-            if (!mot_modifie) {
-                erreur++;
-                dessinerPendu(erreur);
+            if (!lettre_trouvee) {
+                erreurs++;
+                dessinerPendu(erreurs);
             }
 
             document.getElementById('mot').innerText = mot_en_cours.join(' ');
@@ -178,25 +234,27 @@ background-size: cover;
                 document.getElementById('message').innerText = "Félicitations ! Vous avez deviné le mot : " + mot_a_deviner;
                 document.getElementById('message').classList.remove('error');
                 document.getElementById('message').classList.add('success');
-                setTimeout(initialiserJeu, 3000); // Redémarrer le jeu après 3 secondes de délai
-            } else if (erreur >= 6) {
+                setTimeout(initialiserJeu, 3000); // Recommencer le jeu après 3 secondes
+            } else if (erreurs >= 6) {
                 document.getElementById('message').innerText = "Désolé, vous avez perdu. Le mot était : " + mot_a_deviner;
                 document.getElementById('message').classList.remove('success');
                 document.getElementById('message').classList.add('error');
-                setTimeout(initialiserJeu, 3000); // Redémarrer le jeu après 3 secondes de délai
+                setTimeout(initialiserJeu, 3000); // Recommencer le jeu après 3 secondes
             }
         }
 
-        function dessinerPendu(erreur) {
+        function dessinerPendu(erreurs) {
             let pendu = '';
-            if (erreur >= 1) pendu += " ||/       |  \n";
-            if (erreur >= 2) pendu += " ||        0  \n";
-            if (erreur >= 3) pendu += " ||       /|\\ \n";
-            if (erreur >= 4) pendu += " ||       /|  \n";
-            if (erreur >= 5) pendu += "/||           \n";
-            if (erreur >= 6) pendu += "==============\n";
+            if (erreurs >= 1) pendu += " ||/       |  \n";
+            if (erreurs >= 2) pendu += " ||        0  \n";
+            if (erreurs >= 3) pendu += " ||       /|\\ \n";
+            if (erreurs >= 4) pendu += " ||       /|  \n";
+            if (erreurs >= 5) pendu += "/||           \n";
+            if (erreurs >= 6) pendu += "==============\n";
             document.getElementById('pendu').innerText = pendu;
         }
+
+        initialiserJeu(); // Initialiser le jeu au chargement de la page
     </script>
 </body>
 </html>
