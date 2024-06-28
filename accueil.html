@@ -10,35 +10,41 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #FFFFFF;
-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' %3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%23A3A3A3'/%3E%3Cstop offset='1' stop-color='%23D3D3D3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpattern id='b' width='24' height='24' patternUnits='userSpaceOnUse'%3E%3Ccircle fill='%23FFFFFF' cx='12' cy='12' r='12'/%3E%3C/pattern%3E%3Crect width='100%25' height='100%25' fill='url(%23a)'/%3E%3Crect width='100%25' height='100%25' fill='url(%23b)' fill-opacity='0.1'/%3E%3C/svg%3E");
-background-attachment: fixed;
+            background-color: #f0f8ff; /* Couleur de fond */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' %3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%23a8dadc'/%3E%3Cstop offset='1' stop-color='%23f0f8ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpattern id='b' width='24' height='24' patternUnits='userSpaceOnUse'%3E%3Ccircle fill='%23FFFFFF' cx='12' cy='12' r='12'/%3E%3C/pattern%3E%3Crect width='100%25' height='100%25' fill='url(%23a)'/%3E%3Crect width='100%25' height='100%25' fill='url(%23b)' fill-opacity='0.1'/%3E%3C/svg%3E");
+            background-attachment: fixed;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
+            height: 100vh; /* Hauteur de la vue */
+            transition: background-color 0.3s ease;
         }
 
         /* Styles pour la barre de navigation */
         nav {
-            background-color: #333;
+            background-color: #1d3557; /* Couleur de fond de la navbar */
             width: 100%;
             overflow: hidden;
             position: fixed;
             top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
         }
 
         nav a {
             float: left;
             display: block;
-            color: white;
+            color: #f1faee; /* Couleur du texte */
             text-align: center;
             padding: 14px 20px;
             text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         nav a:hover {
-            background-color: #ddd;
-            color: black;
+            background-color: #a8dadc; /* Couleur de fond au survol */
+            color: #1d3557; /* Couleur du texte au survol */
         }
 
         /* Styles pour le conteneur principal */
@@ -47,40 +53,76 @@ background-attachment: fixed;
             justify-content: space-between;
             align-items: center;
             max-width: 800px;
-            margin: 80px auto; /* Augmenté pour centrer mieux sur la page */
-            background-color: #fff;
+            background-color: #ffffff; /* Couleur de fond du conteneur */
             padding: 20px;
-            border-radius: 100px; /* Ajusté pour des coins moins arrondis */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden; /* Pour cacher le débordement des images */
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .flex-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
         }
 
         .content {
             flex: 1;
+            margin-right: 20px;
         }
 
         .flex-container img {
-            max-width: 100%; /* Ajusté pour s'adapter au conteneur */
+            width: 300px; /* Taille réduite pour l'image */
             height: auto;
-            border-radius: 100px; /* Border-radius de l'image */
+            border-radius: 20px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            margin-left: 20px; /* Espace entre le texte et l'image */
+        }
+
+        .flex-container img:hover {
+            transform: scale(1.05);
         }
 
         /* Styles pour les boutons */
         button {
-            background-color: #333;
-            color: white;
+            background-color: #457b9d; /* Couleur de fond du bouton */
+            color: #f1faee; /* Couleur du texte du bouton */
             border: none;
             padding: 10px 20px;
             font-size: 16px;
-            border-radius: 100px; /* Ajusté pour des coins arrondis */
+            border-radius: 20px;
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         button:hover {
-            background-color: #ddd;
-            color: black;
+            background-color: #a8dadc; /* Couleur de fond du bouton au survol */
+            color: #1d3557; /* Couleur du texte du bouton au survol */
+        }
+
+        /* Media query pour rendre la page responsive */
+        @media (max-width: 768px) {
+            .flex-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .content {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .flex-container img {
+                width: 100%; /* Image prend toute la largeur en mode mobile */
+                margin-left: 0;
+            }
+
+            nav a {
+                float: none;
+                text-align: left;
+                padding: 10px 15px;
+            }
         }
     </style>
 </head>
@@ -93,15 +135,15 @@ background-attachment: fixed;
         <a href="evenement.html">Événement</a>
         <a href="anime.html">Animé</a>
     </nav>
-<div class="flex-container">
-    <div class="content">
-        <h1>Bienvenue sur mon site!</h1>
-        <p>Vous pouvez y découvrir tout plein de choses incroyables!</p>
+    <div class="flex-container">
+        <div class="content">
+            <h1>Bienvenue sur mon site!</h1>
+            <p>Vous pouvez y découvrir tout plein de choses incroyables!</p>
+            <h1>En cliquant sur l'image vous pouvait y voir mon github. ➾</h1>
+        </div>
+        <a href="https://github.com/yanisleyaya" target="_blank">
+            <img src="https://www.freecodecamp.org/news/content/images/2024/04/freecodecampl-github.png" alt="Image">
+        </a>
     </div>
-    <a href="todo-list.html">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgXvo6blePJ_H53860w9iEX_ffwkX90jZMpA&s" alt="Image">
-    </a>
-</div>
-
 </body>
 </html>
