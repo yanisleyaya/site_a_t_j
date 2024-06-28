@@ -4,22 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo List</title>
-    <nav>
-        <a href="accueil.html"><img src="maison.svg">Accueil</a>
-        <a href="todo-list.html"><img src="block.png">Todo-list</a>
-        <a href="jeu_des_nombre.html"><img src="jeu.svg"> Les nombres</a>
-        <a href="jeu_du_pendu.html"><img src="jeu.svg">Le pendu</a>
-        <a href="evenement.html"><img src="anive.svg">Événement</a>
-        <a href="anime.html"><img src="tv.svg">Animé</a>
-    </nav>
-
     <style>
-    body {
+        body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #6CE7FF;
-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23BAC0FF'/%3E%3Cstop offset='1' stop-color='%236CE7FF'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%23000AFF' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000AFF' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.4'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
-background-attachment: fixed;
-background-size: cover;;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23BAC0FF'/%3E%3Cstop offset='1' stop-color='%236CE7FF'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%23000AFF' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000AFF' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.4'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
+            background-size: cover;
             margin: 0;
             padding: 0;
             height: 100vh;
@@ -33,10 +24,12 @@ background-size: cover;;
             position: absolute;
             top: 0;
             width: 100%;
+            display: flex;
+            justify-content: space-around;
         }
         nav a {
-            float: left;
-            display: block;
+            display: flex;
+            align-items: center;
             color: white;
             text-align: center;
             padding: 14px 20px;
@@ -46,6 +39,15 @@ background-size: cover;;
             background-color: #ddd;
             color: black;
         }
+        nav a:hover img { 
+            filter: invert(0);  
+        }
+
+        nav a img {
+            width: 20px; /* Taille de l'image ajustée */
+            margin-right: 10px; /* Marge à droite de l'image */
+            filter: invert(1) ;
+        }
         .content {
             display: flex;
             justify-content: center;
@@ -54,12 +56,12 @@ background-size: cover;;
             width: 100%;
         }
         .todo-container {
-             background-color: #fff;
-             padding: 40px; /* Augmenté pour plus d'espace autour du contenu */
+            background-color: #fff;
+            padding: 40px; /* Augmenté pour plus d'espace autour du contenu */
             border-radius: 10px;
-             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-             width: 400px; /* Augmenté pour élargir la boîte de la liste des tâches */
-             transition: transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 400px; /* Augmenté pour élargir la boîte de la liste des tâches */
+            transition: transform 0.2s;
         }
         .todo-container:hover {
             transform: scale(1.05);
@@ -92,14 +94,13 @@ background-size: cover;;
             list-style: none;
             padding: 0;
         }
-
-         .task-list li {
-             background-color: #f9f9f9;
-             padding: 15px; /* Augmenté pour plus d'espace autour de chaque tâche */
-             margin-bottom: 15px;
-             border: 1px solid #ddd;
-             border-radius: 5px;
-             display: flex;
+        .task-list li {
+            background-color: #f9f9f9;
+            padding: 15px; /* Augmenté pour plus d'espace autour de chaque tâche */
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: flex;
             justify-content: space-between;
             transition: background-color 0.3s;
         }
@@ -110,24 +111,29 @@ background-size: cover;;
             font-size: 0.9em;
             color: #888;
         }
-        nav a img {
-    width: 20px; /* Taille de l'image ajustée */
-    margin-right: 10px; /* Marge à droite de l'image */
-}    
     </style>
-</style>
-
 </head>
+<body>
+    <nav>
+        <a href="accueil.html"><img src="maison.svg" >Accueil</a>
+        <a href="todo-list.html"><img src="block.png" >Todo-list</a>
+        <a href="jeu_des_nombre.html"><img src="jeu.svg" >Les nombres</a>
+        <a href="jeu_du_pendu.html"><img src="jeu.svg" >Le pendu</a>
+        <a href="evenement.html"><img src="anive.svg">Événement</a>
+        <a href="anime.html"><img src="tv.svg">Animé</a>
+    </nav>
 
-    <div class="todo-container">
-        <h2>Ma Todo List</h2>
-        <form class="task-form" id="task-form">
-            <input type="text" id="task-input" placeholder="Nouvelle tâche" required>
-            <input type="date" id="date-input" required>
-            <button type="submit">Ajouter</button>
-        </form>
-        <ul class="task-list" id="task-list">
-        </ul>
+    <div class="content">
+        <div class="todo-container">
+            <h2>Ma Todo List</h2>
+            <form class="task-form" id="task-form">
+                <input type="text" id="task-input" placeholder="Nouvelle tâche" required>
+                <input type="date" id="date-input" required>
+                <button type="submit">Ajouter</button>
+            </form>
+            <ul class="task-list" id="task-list">
+            </ul>
+        </div>
     </div>
 
     <script>

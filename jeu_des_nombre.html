@@ -19,16 +19,18 @@
     background-position: center;
     height: 100%; /* Utilisation de height: 100% pour couvrir toute la fenêtre */
 }
-        nav {
+nav {
             background-color: #333;
             overflow: hidden;
             position: absolute;
             top: 0;
             width: 100%;
+            display: flex;
+            justify-content: space-around;
         }
         nav a {
-            float: left;
-            display: block;
+            display: flex;
+            align-items: center;
             color: white;
             text-align: center;
             padding: 14px 20px;
@@ -38,6 +40,15 @@
             background-color: #ddd;
             color: black;
         }
+        nav a:hover img { 
+            filter: invert(0);  
+        }
+
+        nav a img {
+            width: 20px; /* Taille de l'image ajustée */
+            margin-right: 10px; /* Marge à droite de l'image */
+            filter: invert(1) ;
+        }     
         .container {
     margin: 50px auto; /* Centrer horizontalement avec une marge en haut de 50px */
     padding: 20px;
@@ -70,7 +81,7 @@
             border-color: #0000002d;
             outline: none;
         }
-        button {
+    button {
             padding: 15px 30px;
             margin: 10px 0;
             font-size: 18px;
@@ -81,22 +92,18 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        button:hover {
+    button:hover {
             background-color: #00010281;
         }
-        #result {
+    #result {
             margin-top: 20px;
             font-size: 20px;
             font-weight: bold;
             color: #333;
         }
-        .hidden {
+    .hidden {
             display: none;
         }
-        nav a img {
-    width: 20px; /* Taille de l'image ajustée */
-    margin-right: 10px; /* Marge à droite de l'image */
-}
     </style>
 </head>
 <body>

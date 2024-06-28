@@ -26,18 +26,33 @@
             position: absolute;
             top: 0;
             width: 100%;
+            display: flex;
+            justify-content: space-around;
         }
         nav a {
-            float: left;
-            display: block;
+            display: flex;
+            align-items: center;
             color: white;
             text-align: center;
             padding: 14px 20px;
-            text-decoration: none;
+            text-decoration: none ;
         }
         nav a:hover {
             background-color: #ddd;
             color: black;
+            
+        }
+
+        nav a:hover img {
+            
+            filter: invert(0);
+            
+        }
+
+        nav a img {
+            width: 20px; /* Taille de l'image ajustée */
+            margin-right: 10px; /* Marge à droite de l'image */
+            filter: invert(1) ;
         }
         
 
